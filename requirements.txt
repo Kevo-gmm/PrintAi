@@ -1,0 +1,11 @@
+flask_bcrypt 
+flask_sqlalchemy
+flask_login
+flask_mail
+flask_limiter
+pymysql
+stability_sdk
+requests
+flask_wtf
+email_validator
+dropbox

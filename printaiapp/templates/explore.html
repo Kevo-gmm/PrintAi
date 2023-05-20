@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/explore.css')}}">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/features/">
+        <!--<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">-->
+      
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body>
+        
+        <header>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary rounded-pill"
+            style="position: absolute; top: 20px; left: 20px; background-color:  #1B89E0;">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to home
+             </a>
+        
+            <section class="py-5 text-center container" id="explore-cont">
+                <div class="row py-lg-5">
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <h1 class="fw-light">Explore</h1>
+                    </div>
+                </div>
+            </section>
+            <form class="form-inline my-2 my-lg-0 d-flex justify-content-end" method="get">
+               
+                <div class="input-group">
+                    <input class="form-control form-control-rounded rounded-pill" type="search"
+                        placeholder="Search images" aria-label="Search" name="search" value="{{ search_query }}">
+                    <div class="input-group-append">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                {% if state == 'logged_in' %}
+                <button class="btn btn-outline-secondary rounded-pill btn-rounded-pill" onclick="logout()">
+                    <a href="{{url_for('logout_page')}}">Sign Out</a>
+                </button>
+                {% else %}
+                    <button class="btn btn-outline-secondary rounded-pill btn-rounded-pill"><a href="{{url_for('login_page', next=request.path)}}">
+                        Sign In
+                    </a></button> 
+                {% endif %}
+                
+            </form>
+        </header>
+        <main>
+            <div class="album py-5 bg-light" style="background: linear-gradient(90deg, var(--primary-color) 51%, var(--secondary-color) 82%);">
+                {#
+                <!--<li class="page-item {% if page == 1 %}disabled{% endif %}">
+                <a class="page-link" href="?page={{ page-1 }}">&laquo;</a>
+            </li>-->
+
+                <!--{% set images_per_page = 4 %}
+            {% set total_pages = (images|length / images_per_page)|round(0, 'ceil')|int %}-->
+                #}
+
+                <div class="container" style="background: linear-gradient(90deg, #1B89E0 81%, #28EFEF 92%);
+                ">
+                    {# {% for page in range(total_pages) %} #}
+                    <div class="container" id="image-container">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            {% for prompt, prompt_images in images_by_prompt.items() %}
+                            {% for image in prompt_images %}
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img class="card-img-top" src="{{ image.image_url }}" width="100%" height="100%">
+
+                                    <p class="card-text">{{ prompt }}<br>Created by: {{ image.creator.username }}
+                                        <button class="custom-btn btn-15 shadow-lg use-button" type="button"
+                                            data-toggle="modal" data-target="#largeModal"
+                                            data-image="{{ image.image_url }}" style="background-color: #28EFEF;">
+                                            <span class="">Use</span>
+                                        </button>
+                                    </p>
+
+                                    <!-- <p>{{ image.image_url }}</p> -->
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endfor %}
+                        </div>
+
+                        {% set left_edge = 2 %}
+                    {% set left_current = page - left_edge %}
+                    {% set right_edge = 2 %}
+                    {% set right_current = page + right_edge + 1 %}
+                    {% set page_range = range(1, num_pages + 1) %}
+                    {% set page_range_show = page_range[left_current:right_current] %}
+                    <nav aria-label="Image pagination">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item{{ ' disabled' if page == 1 else '' }}">
+                                <a class="page-link" href="{{ url_for('display_images', page=page-1) }}" tabindex="-1" aria-disabled="{{ 'true' if page == 1 else 'false' }}">Previous</a>
+                            </li>
+                            {% if page > left_edge + 1 %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">...</a>
+                            </li>
+                            {% endif %}
+                            {% for p in page_range_show %}
+                            <li class="page-item{{ ' active' if page == p else '' }}">
+                                <a class="page-link" href="{{ url_for('display_images', page=p) }}">{{ p }}</a>
+                            </li>
+                            {% endfor %}
+                            {% if page < num_pages - right_edge %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">...</a>
+                            </li>
+                            {% endif %}
+                            <li class="page-item{{ ' disabled' if page == num_pages else '' }}">
+                                <a class="page-link" href="{{ url_for('display_images', page=page+1) }}" aria-disabled="{{ 'true' if page == num_pages else 'false' }}">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                        
+
+                    </div>
+
+                    {# {% endfor %} #}
+                    <!-- large modal -->
+
+                    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Print Image on Item</h4>
+                                </div>
+
+                                <!-- The items in the modal -->
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h3>Image</h3>
+                                            <img id="selected-image" class="img-fluid mb-3" src="" alt="">
+                                            <button type="button" class="btn btn-primary"
+                                                id="design-button">Design</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3>Gender</h3>
+                                            <select id="gender-select" class="form-control">
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                            <div id="items-container" class="mt-3"></div>
+
+
+                                            <div id="male-items" style="display:none;">
+                                                <h3>Item</h3>
+                                                <select id="male-item-select" class="form-control">
+                                                    <option value="hoodie" data-product-id="522"
+                                                        data-variant-id="13107">Hoodie</option>
+                                                    <option value="tshirt" data-product-id="328" data-variant-id="9957">
+                                                        T-Shirt</option>
+                                                    <option value="shirt" data-product-id="623" data-variant-id="16058">
+                                                        Shirt</option>
+                                                    <option value="tanktop" data-product-id="248" data-variant-id="8628">
+                                                        Tank Top</option>
+                                                    <option value="longsleeve" data-product-id="511" data-variant-id="12869">
+                                                        Long sleeve tee</option>
+                                                    <option value="unisex_hoodie" data-product-id="380" data-variant-id="10779">
+                                                        Unisex hoodie</option>
+                                                    <option value="sweat_shirt" data-product-id="411" data-variant-id="11254">
+                                                        Sweat shirt</option>
+                                                    <option value="phonecase" data-product-id="181" data-variant-id="16240">
+                                                        Iphone clear case</option>
+                                                    <option value="mug" data-product-id="19" data-variant-id="1320">
+                                                        Glossy Mug</option>
+                                                    <option value="mug" data-product-id="518" data-variant-id="13097">
+                                                        Mouse pad</option>
+                                                    <option value="framedcanvas" data-product-id="614" data-variant-id="16034">
+                                                        Framed canvas</option>
+                                                    <option value="canvas" data-product-id="3" data-variant-id="823">
+                                                        Canvas</option>
+                                                </select>
+                                            </div>
+
+                                            <div id="female-items" style="display:none;">
+                                                <h3>Item</h3>
+                                                <select id="female-item-select" class="form-control">
+                                                    <option value="hoodie" data-product-id="526"
+                                                        data-variant-id="13285">Women's Hoodie</option>
+                                                    <option value="tshirt" data-product-id="567" data-variant-id="14363"
+                                                        selected>Women's T-Shirt</option>
+                                                    <option value="shirt" data-product-id="623" data-variant-id="16058">
+                                                        Shirt</option>
+                                                    <option value="Hoodie Dress" data-product-id="448" data-variant-id="11698">
+                                                        Hoodie Dress</option>
+                                                    <option value="longsleeve" data-product-id="511" data-variant-id="12869">
+                                                        Long sleeve tee</option>
+                                                    <option value="unisex_hoodie" data-product-id="380" data-variant-id="10779">
+                                                        Unisex hoodie</option>
+                                                    <option value="phonecase" data-product-id="181" data-variant-id="16240">
+                                                        Iphone clear case</option>
+                                                    <option value="mug" data-product-id="19" data-variant-id="1320">
+                                                        Glossy Mug</option>
+                                                    <option value="mug" data-product-id="518" data-variant-id="13097">
+                                                        Mouse pad</option>
+                                                    <option value="framedcanvas" data-product-id="614" data-variant-id="16034">
+                                                        Framed canvas</option>
+                                                    <option value="canvas" data-product-id="3" data-variant-id="823">
+                                                        Canvas</option>
+                                                    <option value="Women's Racerback" data-product-id="163" data-variant-id="6651">
+                                                        Women's Racerback</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+        </main>
+        <footer class="text-muted py-5">
+            <div class="container">
+                <p class="float-end mb-1">
+                    <a href="#" style="color: white;">Back to top</a>
+                </p>
+                <p class="mb-1">PrintAI &copy; 2023
+                </p>
+            </div>
+        </footer>
+        <script src="../static/js/bootstrap.bundle.min.js"></script>
+        <script src="../static/js/modal.js"></script>
+        <script src="{{ url_for('static', filename='../static/js/signin.js') }}"></script>
+    </body>
+
+</html>

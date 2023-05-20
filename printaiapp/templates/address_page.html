@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Shipping Information</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/address.css">
+	
+	</head>
+	<body>
+		<!-- main -->
+		<div class="main">
+			<h1>Shipping Information</h1>
+			<div class="main-bdy">
+				<div class="main-body-left">
+					<ul>
+						<!-- <li><a href="#" class="in"></a></li> -->
+						<li><a href="#" class=""></a></li>
+						<!-- <li><a href="#" class="twitter"></a></li> -->
+					</ul>
+					<h2>Create Order!</h2>
+					<p>Checkout to complete.</p>
+								<p>Thank you for choosing us for your shipping needs.
+						We strive to provide you with the best service possible. Please fill out the form below to create your order and complete your checkout</p>
+				</div>
+				<div class="main-body-right">
+					<form method="POST" action="/create_order">
+							<div>
+								<input type="text" name="name" required placeholder="Name">
+							</div>
+							<br>
+							<div>
+								<input type="text" name="address1" required placeholder="Address">
+							</div>
+							<br>
+							<div>
+								<input type="text" name="city" required placeholder="City">
+							</div>
+							<br>
+							<div>
+								<input type="text" name="state" required placeholder="State">
+							</div>
+							<br>
+							<div>
+								<select name="country" required placeholder="Country">
+								<option value="">-- Select Country --</option>
+								<option value="US">United States</option>
+								<option value="CA">Canada</option>
+								<option value="GB">United Kingdom</option>
+								<option value="AU">Australia</option>
+								<option value="KE">Kenya</option>
+								</select>
+							</div>
+							<br>
+							<div>
+								<input type="text" name="zip" required placeholder="Zip">
+							</div>
+							<br>
+							<button type="submit">Create Order</button>
+					</form>
+				</div>
+				<div class="clear"> </div>
+			</div>
+			<div class="copy-right">
+			</div>
+		</div>
+	<!-- //main -->
+	</body>
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+	</body>
+</html>
+

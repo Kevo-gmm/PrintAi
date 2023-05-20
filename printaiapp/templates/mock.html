@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Mock Display</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{url_for('static', filename='../static/css/noscript.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='../static/css/main.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='../static/css/cart.css')}}"> -->
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+				<!-- One -->
+					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+
+              <!-- <li><a href="#" class="button primary icon solid fa-search">Icon</a></li> -->
+              <a class="button primary icon solid" href="{{ url_for('view_cart') }}">
+                <i class="fa fa-shopping-cart"></i>
+                {% if cart_total_item > 0 %}
+                <span class="badge badge-light">{{ cart_total_item }}</span>
+                {% endif %}
+              </a>
+              
+          
+							<h1>{{ variant.name }}</h1>
+							<p>Price:$ {{ variant.price }} {{ variant.currency }}</p>
+							<ul class="actions stacked">
+                <form action="{{ url_for('add_to_cart') }}" method="post">
+                  <input type="hidden" name="product_id" value="{{ variant.product_id }}">
+                  <input type="hidden" name="product_name" value="{{ variant.name }}">
+                  <!-- varinat_id -->
+                  <input type="hidden" name="variant_id" value="{{ variant.id }}">
+                  <input type="hidden" name="item_quantity" value="1">
+                  <input type="hidden" name="mockup_url" value="{{ mockup_url }}">
+                  <input type="hidden" name="product_info" value="{{ product_info }}">
+                  <button type="submit" class="btn btn-primary" id="add-to-cart-button" onclick="alert('Item Added Cart!')">Add to Cart</button>
+              </form>
+							</ul>
+						</div>
+						<div class="image">
+              <img class="image" src="{{ mockup_url }}" alt="Mockup Image">
+						</div>
+					</section>
+			</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+      <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/jquery.scrollex.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/jquery.scrolly.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/browser.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/util.js')}}"></script>
+      <script src="{{url_for('static', filename='js/main.js')}}"></script>
+      
+	</body>
+</html>

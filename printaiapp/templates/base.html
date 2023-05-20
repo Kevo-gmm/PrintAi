@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Generated Images</title>
+  </head>
+  <body>
+     <form action="/" method="post">
+        <input type="text" name="prompt">
+        <input type="submit" value="Submit">
+    </form>
+    <div style="display: flex; flex-wrap: wrap;">
+      {% for image in images %}
+        <div style="display: inline-block; width: 300px; height: 300px; margin: 10px;">
+          <img src="data:image/png;base64,{{ image.binary | b64encode }}" width="300" height="300"/>
+          <p>Seed: {{ image.seed }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+:root {
+  --background-color: #082D47;
+  --primary-color: #1B89E0;
+  --secondary-color: #28EFEF;
+  --accent-color: #B8DFFF;
+  --text-color: #FFFFFF;
+}
+
+.card {
+  background-color: var(--background-color);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background-color: rgba(8, 45, 71, 0.7);
+  border: 1px solid var(--accent-color);
+  transform: scale(1.1);
+}
+
+.card-title {
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.card-text {
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}

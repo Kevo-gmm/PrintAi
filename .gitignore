@@ -1,0 +1,227 @@
+# created by virtualenv automatically
+bin/*
+lib/*
+env/*
+venv/*
+*.pem
+client-secret.json
+.*env
+
+
+<a href="#" class="login100-social-item bg1">
+						<i class="fa fa-facebook">
+                        </i>
+					</a>
+                    
+<a href="#" class="login100-social-item bg3" onclick="startAuth()">
+						<i class="fa fa-google"></i>
+					  </a>
+					  
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v15.0&appId=554774770031106&autoLogAppEvents=1" nonce="CsE4Aajj"></script>
+		
+		
+					  
+<div class="fb-login-button" data-width="" data-size="medium" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false">
+</div>
+
+
+
+// window.fbAsyncInit = function() {
+// FB.init({
+// 	appId      : '{554774770031106}',
+// 	cookie     : true,
+// 	xfbml      : false,
+// 	status	   : true,
+// 	version    : '{v15.0}'
+// });
+	
+// // FB.AppEvents.logPageView();   
+	
+// };
+
+// (function(d, s, id){
+// var js, fjs = d.getElementsByTagName(s)[0];
+// if (d.getElementById(id)) {return;}
+// js = d.createElement(s); js.id = id;
+// js.src = "https://connect.facebook.net/en_US/sdk.js";
+// fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
+
+// function checkLoginState() {
+// 	FB.getLoginStatus(function(response) {
+// 		console.log(response);
+// 	if (response.status === 'connected') {
+// 	  	console.log('User is logged in and authenticated');
+// 	  	document.getElementById("signin-button").innerHTML = "Sign Out";
+//     	// document.getElementById("signin-button").onclick = function() { logout();};
+		
+// 	  // Redirect the user to the home page
+// 	  window.location.href = "https://localhost:5000/index";
+// 	} else {
+// 	  console.log('User is not authenticated');
+// 	  document.getElementById("signin-button").innerHTML = "Signup";
+// 	  document.getElementById("signin-button").onclick = function() {
+// 		lwindow.location.href = "{{url_for('login_page')}}";
+// 	 };
+//         }
+// 	  // Show the login button
+// 	//   document.getElementById('loginBtn').style.display = 'block';
+//   });
+// }
+  
+
+//   function login() {
+// 	FB.login(function(response) {
+// 		if (response.authResponse) {
+// 		  FB.api('/me', function(response) {
+// 			var userData = {
+// 			  'username': response.name,
+// 			  'email': response.email
+// 			};
+	  
+// 			// Send an AJAX request to your Flask app to store the user's information
+// 			$.ajax({
+// 			  type: 'POST',
+// 			  url: '/store_user_info',
+// 			  data: JSON.stringify(userData),
+// 			  contentType: 'application/json; charset=utf-8',
+// 			  dataType: 'json',
+// 			  success: function(result) {
+// 				// Redirect the user to the home page
+// 				window.location.href = "https://localhost:5000/index";
+// 			  }
+// 			});
+// 		  });
+// 		} else {
+// 		  console.log('User cancelled login or did not fully authorize.');
+// 		}
+// 	  }, {scope: 'public_profile,email'});
+	  
+//   }
+function logout() {
+		FB.logout(function() {
+			checkLoginState();
+			console.log('User logged out');
+		  window.location.reload(); // Reload the page to refresh the login status
+			// Send an AJAX request to your Flask app to end the user's session
+			$.ajax({
+			type: 'POST',
+			url: '/logout'
+			// success: function(result) {
+			// 	// Redirect the user to the home page
+			// 	window.location.href = "https://localhost:5000/index";
+			// }
+			});
+		}); 
+	}
+	
+	
+	
+	function handleCredentialResponse(response) {
+// 	// decodeJwtResponse() is a custom function
+// 	// to decode the credential response.
+// 	const responsePayload = decodeJwtResponse(response.credential);
+// 	console.log(responsePayload)
+
+// 	// console.log("ID: " + responsePayload.sub);
+// 	// console.log('Full Name: ' + responsePayload.name);
+// 	// console.log('Given Name: ' + responsePayload.given_name);
+// 	// console.log('Family Name: ' + responsePayload.family_name);
+// 	// console.log("Image URL: " + responsePayload.picture);
+// 	// console.log("Email: " + responsePayload.email);
+//  }
+ 
+//  function decodeJwtResponse(data){
+// 	var tokens = data.split(".");
+// 	return JSON.parse(atob(tokens[1]));
+//  }
+
+
+
+
+// ***********************Facebook login setup******************************************
+
+function statusChangeCallback(response) {
+	console.log('statusChangeCallback');
+	console.log(response);                   // The current login status of the person.
+	if (response.status === 'connected') {   // is logged into your webpage and Facebook.
+	  testAPI();
+	  // Redirect the user to the home page
+	//   window.location.href = "https://localhost:5000/facebook_signup";
+	  // document.getElementById("signin-button").innerHTML = "Sign Out";  
+	} else {                                 // Not logged into your webpage
+	  // document.getElementById('status').innerHTML = 'Please log ' +
+	  //   'into this webpage.';
+	  console.log("not logged in");
+	  // document.getElementById("signin-button").innerHTML = "Signup";
+	}
+  }
+  
+  function checkLoginState() {
+	// Called when a person is finished with the Login Button.
+	FB.getLoginStatus(function(response) {
+	  // See the onlogin handler
+	  statusChangeCallback(response);
+	});
+  }
+  
+  window.fbAsyncInit = function() {
+	FB.init({
+	  appId      : '{554774770031106}',
+	  cookie     : true,
+	  xfbml      : false,
+	  status     : true,
+	  version    : '{v15.0}'
+	});
+	
+	FB.AppEvents.logPageView();
+  
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) { return; }
+	  js = d.createElement(s); js.id = id;
+	  js.src = "https://connect.facebook.net/en_US/sdk.js";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+  
+	// Check FB Login Status
+	FB.getLoginStatus(function(response) {
+	  // Called after the JS SDK has been initialized.
+	  statusChangeCallback(response);
+	});
+  }
+  
+//   function testAPI() {
+// 	// Testing Graph API after login. See statusChangeCallback() for when this call is made.
+// 	console.log('Welcome! Fetching your information.... ');
+// 	FB.api('/me', { scope: 'email' }, function(response) {
+// 	  if (!response || response.error) {
+// 		console.log(response ? response.error : 'An error occurred');
+// 	  } else {
+// 		console.log('Successful login for: ' + response.name);
+// 	  }
+// 	});
+//   }
+  
+  
+  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', { scope: 'email' }, function(response) {
+        console.log(response);
+        console.log('Successful login for: ' + response.name);
+        // Send user data to server
+        $.ajax({
+            url: '/facebook_signup',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(response),
+            success: function(result) {
+                console.log(result);
+                window.location.href = "/index?state=logged_in";
+            },
+            error: function(xhr, status, error) {
+                console.log(error);
+            }
+        });
+    });
+}

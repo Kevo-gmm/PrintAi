@@ -1,0 +1,97 @@
+:root {
+  --primary-color: #1B89E0;
+  --secondary-color: #28EFEF;
+  --accent-color: #B8DFFF;
+  --background-color: #082D47;
+  --text-color: #FFFFFF;
+}
+
+body {
+  color: var(--text-color);
+  background: var(--background-color);
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  padding: 0px;
+  margin: 0px;
+  min-height: 100%;
+  position: relative;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  margin-top: 20px;
+}
+
+.panel {
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+
+.panel-body {
+  padding: 15px;
+}
+
+.profile-pic {
+  margin: 20px 0 0 0;
+}
+
+.profile-pic img {
+  border: 7px solid #e5e6ea;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, .h1 {
+  font-size: 1.375em;
+}
+
+p {
+  font-size: 12px;
+}
+
+.profile-info .connect {
+  margin: 15px 0 5px 0;
+}
+
+.profile-info .connect button {
+  margin-right: 15px;
+}
+
+.btn-success.btn-trans {
+  color: var(--secondary-color);
+  background-color: transparent;
+  border: solid thin var(--secondary-color);
+}
+
+.btn-primary.btn-trans {
+  color: var(--primary-color);
+  background-color: transparent;
+  border: solid thin var(--primary-color);
+}
+
+.social {
+  margin: 0;
+  padding: 0;
+}
+
+.social ul {
+  margin: 0;
+  padding: 5px;
+}
+
+.timeline-post-to textarea {
+  min-height: 80px;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border: 2px solid #e8ebed;
+  border-radius: 2px;
+  box-shadow: none;
+  height: 37px;
+  padding: 8px 12px 9px 12px;
+}

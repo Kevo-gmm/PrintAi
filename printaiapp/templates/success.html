@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Thanks for your order!</title>
+    <style>
+      body {
+        background-image: linear-gradient( 68.2deg,  rgba(255,202,88,1) 0%, rgba(139,73,255,1) 100.2% );
+        font-family: Arial, sans-serif;
+        color: #333;
+        padding: 20px;
+      }
+      header a{
+        border-radius: 8px;
+        border: none;
+        padding: 10px;
+        color: rgba(255,202,88,1);
+      }
+      .main{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 80%;
+        gap: 10px;
+        position: relative;
+        flex-wrap: wrap;
+      }
+      h1 {
+        color: white;
+        font-size: 10em;
+        font-family: 'Righteous', cursive;
+        font-weight: bolder;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+        border-bottom: 1px solid #007bff;
+      }
+
+      a:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <header>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary rounded-pill"
+            style="position: absolute; top: 20px; left: 20px; background-color: #636363;">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to home
+             </a>
+    </header>
+    <div class='main'>
+    <h1>Thanks for your order!</h1>
+    <p>
+      We are glad to serve you!
+    </p>
+  </div>
+  </body>
+</html>

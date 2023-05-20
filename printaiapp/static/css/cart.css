@@ -1,0 +1,104 @@
+/* Ocean Breeze Theme Colors */
+:root {
+    --background-color: #082D47;
+    --primary-color: #1B89E0;
+    --secondary-color: #28EFEF;
+    --accent-color: #B8DFFF;
+    --text-color: #FFFFFF;
+  }
+  
+  body {
+    /* fallback for old browsers */
+    background: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  body {
+    margin-top: 20px;
+  }
+  
+  .cart-item-thumb {
+    display: block;
+    width: 10rem;
+  }
+  
+  .cart-item-thumb > img {
+    display: block;
+    width: 100%;
+  }
+  
+  .product-card-title > a {
+    color: var(--primary-color);
+  }
+  
+  .font-weight-semibold {
+    font-weight: 600 !important;
+  }
+  
+  .product-card-title {
+    display: block;
+    margin-bottom: .75rem;
+    padding-bottom: .875rem;
+    border-bottom: 1px dashed #e2e2e2;
+    font-size: 1rem;
+    font-weight: normal;
+  }
+  
+  .text-muted {
+    color: #888 !important;
+  }
+  
+  .bg-secondary {
+    background-color: var(--secondary-color) !important;
+  }
+  
+  .accordion .accordion-heading {
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .font-weight-semibold {
+    font-weight: 600 !important;
+  }
+  
+  .remove-item-form {
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .remove-item-button {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+    color: var(--text-color);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out,
+                border-color 0.2s ease-in-out,
+                box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .remove-item-button:hover {
+    background-color: #FFFFFF;
+    border-color: #FFFFFF;
+  }
+  
+  .text-danger {
+    color: #dc3545;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .text-danger:hover {
+    color: #c82333;
+  }
+  
+  .media-body pt-3 h3 {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 1px;
+  }
+  

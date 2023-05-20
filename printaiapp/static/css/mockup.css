@@ -1,0 +1,247 @@
+/* :root {
+  --primary-color: #636363;
+  --secondary-color: #FF9933;
+}
+
+body {
+  background: rgb(99,99,99);
+  background: linear-gradient(90deg, rgba(99,99,99,0.8827906162464986) 31%, rgba(224, 127, 30, 0.701) 52%);
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+header {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 80%;
+  gap: 10px;
+  position: relative;
+  margin: 0 auto;
+} */
+
+/* .container a {
+  position: absolute;
+  top: 10px;
+  right: 31px;
+}
+
+.image-container {
+  flex: 1;
+  margin-right: 20px;
+} */
+
+/* .image {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  height: auto;
+  border-radius: 15%;
+  padding: 10px;
+  background: linear-gradient(70deg, rgba(99,99,99,0.8827906162464986) 1%, rgba(119, 83, 47, 0.701) 52%);
+  border: none; 
+} */
+
+/* .details-container {
+  flex: 1;
+}
+
+.details-container p {
+  color: #fff;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+footer {
+  background: rgb(99,99,99);
+  background: linear-gradient(90deg, rgba(99,99,99,0.8827906162464986) 31%, rgba(192, 117, 42, 0.701) 52%);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: white;
+  font-size: 1.2em;
+} */
+
+/* Media queries */
+
+/* For screens smaller than 768px */
+/* @media (max-width: 767px) {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+}
+
+.image-container {
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+.details-container {
+  text-align: center;
+}
+
+.container a {
+  position: static;
+  margin-top: 20px;
+}
+
+} */
+
+/* For screens smaller than 576px */
+/* @media (max-width: 575px) {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+}
+
+.image-container {
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+
+.details-container {
+  text-align: center;
+}
+
+.container a {
+  position: static;
+  margin-top: 20px;
+}
+} */
+
+
+/* default styles */
+/* you can adjust the default styles as per your requirement */
+
+body {
+  background: #082D47;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  min-height: 100vh;
+  color: #FFFFFF;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #1B89E0;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #B8DFFF;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  align-items: center;
+  justify-content: flex-end;
+  width: 80%;
+  gap: 10px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.image-container {
+  text-align: left;
+}
+
+.details-container {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.image-container {
+  text-align: center;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* responsive styles */
+/* adjust the styles based on screen size */
+
+@media only screen and (max-width: 768px) {
+  /* adjust the container size and padding */
+  .container {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  /* adjust the image size and margin */
+  .image-container {
+    margin: 1rem auto;
+  }
+
+  .image {
+    max-width: 100%;
+  }
+
+  /* adjust the details container margin */
+  .details-container {
+    margin: 0.5rem auto;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  /* further adjust the container size and padding */
+  .container {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+}

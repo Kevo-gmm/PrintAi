@@ -1,0 +1,77 @@
+:root {
+  --background-color: #082D47;
+  --primary-color: #1B89E0;
+  --secondary-color: #28EFEF;
+  --accent-color: #B8DFFF;
+  --text-color: #FFFFFF;
+}
+
+.name-fields {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name-fields input {
+  width: 48%;
+}
+.align-left {
+  border-left: none;
+}
+
+.email-field {
+  position: relative;
+}
+
+.email-field:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #ccc;
+}
+
+.message {
+  font-weight: bold;
+  position: fixed;
+  top: 30px;
+  right: 45%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 7px;
+  display: none;
+  color: var(--text-color);
+}
+
+h3 a {
+  background-color: transparent;
+  color: var(--secondary-color);
+  transition: background-color 0.3s ease;
+}
+
+h3 a:hover {
+  color: var(--secondary-color);
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgba(165, 165, 162, 0.5);
+}
+
+.alt{
+  display: flex; 
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.fb_iframe_widget{
+  padding-right: 25px;
+}
+
+#g_id_onload{
+  padding-right: 25px;
+}
+
+#link{
+  color: var(--secondary-color);
+}

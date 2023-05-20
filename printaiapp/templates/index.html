@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/features/">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='../static/css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='../static/css/theme.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital@1&display=swap" rel="stylesheet">
+
+    <title> PrintAI</title>
+  </head>
+
+  <body>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <!-- carousel items -->
+      <div class="carousel-inner">
+        <div id="item1" class="carousel-item active">
+          <div style="position: relative;">
+            <div style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+            <img src="{{url_for('static', filename='img/castle_6.jpeg')}}" alt="First slide">
+          </div>
+          <div class="carousel-caption">
+            <h1 style="color: #B8DFFF;">PrintAI</h1>
+            <h3 style="color: #FFFFFF;">You imagine, AI create's it for you.</h3>
+            <!-- <a href="{{url_for('gen_image')}}"><button class="btn btn-secondary">Create</button></a> -->
+            <a href="{{url_for('display_images')}}"><button class="btn btn-secondary">Explore</button></a>
+            <a href="#generate-form"><button class="btn btn-secondary">Create</button></a>
+          </div>
+        </div>
+        <div id="item2" class="carousel-item">
+          <div style="position: relative;">
+            <div style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+            <img src="{{url_for('static', filename='img/castle_5.jpeg')}}" alt="Second slide">
+          </div>
+          <div class="carousel-caption">
+            <h1 style="color: #B8DFFF;">PrintAI</h1>
+            <h3 style="color: #FFFFFF;">You imagine, AI create's it for you.</h3>
+            <!-- <a href="{{url_for('gen_image')}}"><button class="btn btn-secondary">Create</button></a> -->
+            <a href="{{url_for('display_images')}}"><button class="btn btn-secondary">Explore</button></a>
+            <a href="#generate-form"><button class="btn btn-secondary">Create</button></a>
+          </div>
+        </div>
+        <div id="item3" class="carousel-item">
+          <div style="position: relative;">
+            <div style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+            <img src="{{url_for('static', filename='img/castle_3.jpeg')}}" alt="Third slide">
+          </div>
+          <div class="carousel-caption">
+            <h1 style="color: #B8DFFF;">PrintAI</h1>
+            <h3 style="color: #FFFFFF;">You imagine, AI create's it for you.</h3>
+            <!-- <a href="{{url_for('gen_image')}}"><button class="btn btn-secondary">Create</button></a> -->
+            <a href="{{url_for('display_images')}}"><button class="btn btn-secondary">Explore</button></a>
+            <a href="#generate-form"><button class="btn btn-secondary">Create</button></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- controls -->
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+    </div>
+    </div>
+
+    <form class="form-inline my-2 my-lg-0 d-flex justify-content-end">
+      {% if state == 'logged_in' %}
+          <div class="message" id="message">
+              Signed In
+          </div>
+          <a class="btn btn-outline-secondary rounded-pill btn-rounded-pill" href="{{ url_for('view_cart') }}">
+            <i class="fa fa-shopping-cart"></i>
+            {% if cart_total_item > 0 %}
+            <span class="badge badge-light">{{ cart_total_item }}</span>
+            {% endif %}
+            Cart
+          </a>
+          <div class="welcome-message">
+            Welcome {{ current_user.username }}!
+          </div>
+          
+          <button class="btn btn-outline-secondary rounded-pill btn-rounded-pill" onclick="logout()">
+              <a href="{{url_for('logout_page')}}">Sign Out</a>
+          </button>
+      {% else %}
+          <button class="btn btn-outline-secondary rounded-pill btn-rounded-pill">
+              <a href="{{url_for('login_page', next=request.path)}}">Sign In</a>
+          </button> 
+      {% endif %}
+
+    </form>
+
+    <section class="py-5 text-center container" id="generate-form">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <div class="lead">
+            <p class="section-text">Start by creating an Image generated by AI. Don't have an idea yet, don't worry you
+            can use other people's creations or you can get inspiration from them. You can find them in Explore.<br>Remember to Sign Up before creating</p>
+          <p>
+          </div>
+            <br>
+            
+          <form action="/generate" method="post">
+            <!-- CREATE  -->
+            <!-- Create Button -->
+            <div class="container-create">
+              <button class="custom-btn btn-6 shadow-lg rounded-pill" type="submit">
+                <span class="text">Create</span>
+              </button>
+              <div class="loading-icon-container">
+                <div class="loading-icon"></div>
+              </div>
+            </div>
+            <input type="text" class="form-control rounded-pill p-4 border-end-0 border rounded-pill shadow-lg"
+              name="prompt" placeholder="Dream, create..." value="{{ request.form.prompt }}">
+            <!-- CREATE LOADING BUTTON STYLE JS -->
+            <script>
+              const button = document.querySelector('.custom-btn');
+              button.addEventListener('click', function () {
+                button.classList.add('loading');
+              });
+            </script>
+          </form>
+        </div>
+      </div>
+    </section>
+    <Section class="container">
+      <div class="card">
+        <img src="{{url_for('static', filename='img/castle_6.jpeg')}}" alt="First slide">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+      </div>
+
+    </Section>
+
+    <!-- Display generated images -->
+<div class="container" {% if images %}style="height: 100vh;"{% else %}style="height: 0;"{% endif %}>
+  {% for image in images %}
+    {% if loop.index is odd %}
+      <div class="box">
+        <img src="{{ image.image_url }}" height="100%" width="100%">
+        <div class="button-container">
+          <button class="custom-btn btn-6 shadow-lg rounded-pill use-button" type="button" data-toggle="modal"
+            data-target="#largeModal" data-image="{{ image.image_url }}">
+            <span class="">Use</span>
+          </button>
+        </div>
+        <p class="card-text">{{ image.prompt }}<br>Created by: {{ image.creator.username }}</p>
+      </div>
+    {% else %}
+      <div class="box">
+        <img src="{{ image.image_url }}" height="100%" width="100%">
+        <div class="button-container">
+          <button class="custom-btn btn-6 shadow-lg rounded-pill use-button" type="button" data-toggle="modal"
+            data-target="#largeModal" data-image="{{ image.image_url }}">
+            <span class="">Use</span>
+          </button>
+        </div>
+        <p class="card-text">{{ image.prompt }}<br>Created by: {{ image.creator.username }}</p>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+</div>
+    <!-- large modal -->
+                <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Print Image on Item</h4>
+                                </div>
+                                <!-- The items in the modal -->
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <!-- <h3>Image</h3> -->
+                                            <img id="selected-image" class="img-fluid mb-3" src="" alt="">
+                                            <button type="button" class="btn btn-primary"
+                                                id="design-button">Design</button>
+                                        </div>
+                                        <div class="col-6">
+                                            <h3>Gender</h3>
+                                            <select id="gender-select" class="form-control">
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
+                                            </select>
+                                            <div id="items-container" class="mt-3"></div>
+                                            <div id="male-items" style="display:none;">
+                                                <h3>Item</h3>
+                                                <select id="male-item-select" class="form-control">
+                                                    <option value="hoodie" data-product-id="522"
+                                                        data-variant-id="13107">Hoodie</option>
+                                                    <option value="tshirt" data-product-id="328" data-variant-id="9957">
+                                                        T-Shirt</option>
+                                                    <option value="shirt" data-product-id="623" data-variant-id="16058">
+                                                        Shirt</option>
+                                                    <option value="tanktop" data-product-id="248" data-variant-id="8628">
+                                                        Tank Top</option>
+                                                    <option value="longsleeve" data-product-id="511" data-variant-id="12869">
+                                                        Long sleeve tee</option>
+                                                    <option value="unisex_hoodie" data-product-id="380" data-variant-id="10779">
+                                                        Unisex hoodie</option>
+                                                    <option value="sweat_shirt" data-product-id="411" data-variant-id="11254">
+                                                        Sweat shirt</option>
+                                                    <option value="phonecase" data-product-id="181" data-variant-id="16240">
+                                                        Iphone clear case</option>
+                                                    <option value="mug" data-product-id="19" data-variant-id="1320">
+                                                        Glossy Mug</option>
+                                                    <option value="mug" data-product-id="518" data-variant-id="13097">
+                                                        Mouse pad</option>
+                                                    <option value="framedcanvas" data-product-id="614" data-variant-id="16034">
+                                                        Framed canvas</option>
+                                                    <option value="canvas" data-product-id="3" data-variant-id="823">
+                                                        Canvas</option>
+                                                </select>
+                                            </div>
+                                            <div id="female-items" style="display:none;">
+                                                <h3>Item</h3>
+                                                <select id="female-item-select" class="form-control">
+                                                    <option value="hoodie" data-product-id="526"
+                                                        data-variant-id="13285">Women's Hoodie</option>
+                                                    <option value="tshirt" data-product-id="567" data-variant-id="14363"
+                                                        selected>Women's T-Shirt</option>
+                                                    <option value="shirt" data-product-id="623" data-variant-id="16058">
+                                                        Shirt</option>
+                                                    <option value="Hoodie Dress" data-product-id="448" data-variant-id="11698">
+                                                        Hoodie Dress</option>
+                                                    <option value="longsleeve" data-product-id="511" data-variant-id="12869">
+                                                        Long sleeve tee</option>
+                                                    <option value="unisex_hoodie" data-product-id="380" data-variant-id="10779">
+                                                        Unisex hoodie</option>
+                                                    <option value="phonecase" data-product-id="181" data-variant-id="16240">
+                                                        Iphone clear case</option>
+                                                    <option value="mug" data-product-id="19" data-variant-id="1320">
+                                                        Glossy Mug</option>
+                                                    <option value="mug" data-product-id="518" data-variant-id="13097">
+                                                        Mouse pad</option>
+                                                    <option value="framedcanvas" data-product-id="614" data-variant-id="16034">
+                                                        Framed canvas</option>
+                                                    <option value="canvas" data-product-id="3" data-variant-id="823">
+                                                        Canvas</option>
+                                                    <option value="Women's Racerback" data-product-id="163" data-variant-id="6651">
+                                                        Women's Racerback</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                </div>
+    <br><br>
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark" id="idx-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <h1>PrintAI</h1>
+            <p>PrintAI is a website that lets you create unique images using AI and print them on various products like
+              clothing and cups. Choose from others people work or turn your own imagination into art. Explore your
+              creativity and let the AI do the rest. PrintAI is a great choice for personal use or gifting.</p>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <h5>Quick Links</h5>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.6/dist/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"></script>
+    <script src="particle.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='js/loading_button.js')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='js/cart.js')}}">
+    <script src="{{url_for('static', filename='js/modal_index.js')}}"></script>
+    <script src="{{ url_for('static', filename='../static/js/signin.js') }}"></script>
+</html>
