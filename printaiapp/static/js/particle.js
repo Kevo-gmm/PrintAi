@@ -1,13 +1,13 @@
 // select the canvas element and the carousel element
-const canvas = document.querySelector('#firework-canvas');
-const carousel = document.querySelector('#myCarousel');
+const canvas = document.querySelector("#firework-canvas");
+const carousel = document.querySelector("#myCarousel");
 
 // set the canvas size to match the size of the carousel
 canvas.width = carousel.offsetWidth;
 canvas.height = carousel.offsetHeight;
 
 // get the canvas context
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d");
 
 // define the particle properties
 const particleCount = 100; // number of particles
@@ -41,7 +41,6 @@ class Particle {
     // update the position of the particle
     this.x += this.directionX;
     this.y += this.directionY;
-
     // decrease the particle's opacity
     this.opacity -= particleFade;
 
@@ -69,51 +68,45 @@ function createParticles() {
   // get the center point of the carousel
   const centerX = carousel.offsetWidth / 2;
   const centerY = carousel.offsetHeight / 2;
-
   // generate random angles
-const angle = Math.random() * 360;
-const angleRadians = angle * Math.PI / 180;
-
-// generate random distances from the center
-const distance = Math.random() * 50;
-
-// calculate the starting position of the particle
-const x = centerX + Math.cos(angleRadians) * distance;
-const y = centerY + Math.sin(angleRadians) * distance;
-
-// calculate the direction of the particle
-const directionX = Math.cos(angleRadians) * particleSpeed;
-const directionY = Math.sin(angleRadians) * particleSpeed;
-
-// create a new particle
-const particle = new Particle(x, y, directionX, directionY);
-
-// add the particle to the particles array
-particles.push(particle);
+  const angle = Math.random() * 360;
+  const angleRadians = (angle * Math.PI) / 180;
+  // generate random distances from the center
+  const distance = Math.random() * 50;
+  // calculate the starting position of the particle
+  const x = centerX + Math.cos(angleRadians) * distance;
+  const y = centerY + Math.sin(angleRadians) * distance;
+  // calculate the direction of the particle
+  const directionX = Math.cos(angleRadians) * particleSpeed;
+  const directionY = Math.sin(angleRadians) * particleSpeed;
+  // create a new particle
+  const particle = new Particle(x, y, directionX, directionY);
+  // add the particle to the particles array
+  particles.push(particle);
 }
 
 // function to update and draw the particles
 function updateAndDrawParticles() {
-// clear the canvas
-ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-// iterate through the particles array
-for (let i = 0; i < particles.length; i++) {
-// update and draw the particle
-particles[i].update();
-particles[i].draw();
-}
+  // iterate through the particles array
+  for (let i = 0; i < particles.length; i++) {
+    // update and draw the particle
+    particles[i].update();
+    particles[i].draw();
+  }
 
-// if there are fewer than the desired number of particles, create more
-if (particles.length < particleCount) {
-createParticles();
-}
+  // if there are fewer than the desired number of particles, create more
+  if (particles.length < particleCount) {
+    createParticles();
+  }
 }
 
 // animate the particles
 function animate() {
-updateAndDrawParticles();
-requestAnimationFrame(animate);
+  updateAndDrawParticles();
+  requestAnimationFrame(animate);
 }
 
 // start the animation
