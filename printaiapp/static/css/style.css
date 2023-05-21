@@ -1,9 +1,9 @@
 :root {
-  --background-color: #082D47;
-  --primary-color: #1B89E0;
-  --secondary-color: #28EFEF;
-  --accent-color: #B8DFFF;
-  --text-color: #FFFFFF;
+  --background-color: #082d47;
+  --primary-color: #1b89e0;
+  --secondary-color: #28efef;
+  --accent-color: #b8dfff;
+  --text-color: #ffffff;
 }
 
 body {
@@ -154,7 +154,6 @@ body {
   }
 }
 
-
 .carousel-caption h1 {
   font-size: 50px;
   font-weight: 700;
@@ -230,70 +229,65 @@ body {
   background-color: var(--accent-color);
 }
 
-
-
-
 .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
 
-    .b-example-divider {
-      height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
-      border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
 
-    .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-    }
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
+}
 
-    .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
-    }
+.bi {
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
 
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
+.nav-scroller {
+  position: relative;
+  z-index: 2;
+  height: 2.75rem;
+  overflow-y: hidden;
+}
 
-    .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
+.nav-scroller .nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1rem;
+  margin-top: -1px;
+  overflow-x: auto;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
 
-
-
-    .roundpill {
-border-radius: 20px;
-text-align: center;
+.roundpill {
+  border-radius: 20px;
+  text-align: center;
 }
 
 .roundpill .btn {
-border-radius: 20px;
-padding: 10px 20px;
+  border-radius: 20px;
+  padding: 10px 20px;
 }
 
 /* Add your custom styles for the button here */
@@ -303,41 +297,39 @@ padding: 10px 20px;
   margin-left: 10px; /* add spacing between the input field and the button */
 }
 
-
 @media (max-width: 768px) {
-#myCarousel {
-height: auto; /* Adjust as needed */
-}
+  #myCarousel {
+    height: auto; /* Adjust as needed */
+  }
 
-@media (max-width: 768px) {
-#myCarousel .carousel-item img {
-width: 100%;
-height: 100%;
-object-fit: contain;
-}
-}
+  @media (max-width: 768px) {
+    #myCarousel .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 
-
-@media (max-width: 991px) {
-.footer {
-  flex-wrap: wrap;
-}
-.footer .col-md {
-  width: 100%;
-  margin-bottom: 20px;
-}
-}
-@media (max-width: 768px) {
-#myCarousel {
-height: auto; /* Adjust as needed */
-}
-.footer {
-/* position: fixed; */
-bottom: 0;
-left: 0;
-width: 100%;
-}
-}
+  @media (max-width: 991px) {
+    .footer {
+      flex-wrap: wrap;
+    }
+    .footer .col-md {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+    #myCarousel {
+      height: auto; /* Adjust as needed */
+    }
+    .footer {
+      /* position: fixed; */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
 }
 
 button {
@@ -351,16 +343,14 @@ button {
   color: var(--text-color);
   border-radius: 5px;
   padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1),
-    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
@@ -383,10 +373,7 @@ button {
   content: "";
   height: 0%;
   width: 1px;
-  box-shadow:
-    -1px -1px 20px 0px rgba(255, 255, 255, 1),
-    -4px -4px 5px 0px rgba(255, 255, 255, 1),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.4),
+  box-shadow: -1px -1px 20px 0px rgba(255, 255, 255, 1), -4px -4px 5px 0px rgba(255, 255, 255, 1), 7px 7px 20px 0px rgba(0, 0, 0, 0.4),
     4px 4px 5px 0px rgba(0, 0, 0, 0.3);
 }
 .btn-6:before {
@@ -416,84 +403,78 @@ button {
 .btn-6 span:after {
   position: absolute;
   content: "";
-  box-shadow:
-    -1px -1px 20px 0px rgba(255, 255, 255, 1),
-    -4px -4px 5px 0px rgba(255, 255, 255, 1),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.4),
-    4px 4px 5px 0px rgba(0,0, 0, 0, 0.3);
-  }
-  .btn-6 span:before {
-    left: 0;
-    top: 0;
-    width: 0%;
-    height: 0.5px;
-    transition: all 500ms ease;
-  }
-  .btn-6 span:after {
-    right: 0;
-    bottom: 0;
-    width: 0%;
-    height: 0.5px;
-    transition: all 500ms ease;
-  }
-  .btn-6 span:hover:before {
-    width: 100%;
-  }
-  .btn-6 span:hover:after {
-    width: 100%;
-  }
-  
-  .btn-15 {
-    background: var(--accent-color);
-    border: none;
-    z-index: 1;
-    color: var(--text-color);
-  }
-  
-  .btn-15:after {
-    position: absolute;
-    content: "";
-    width: 0;
-    height: 100%;
-    top: 0;
-    right: 0;
-    z-index: -1;
-    background-color: var(--secondary-color);
-    border-radius: 5px;
-    box-shadow: inset 1px 1px 2px 6px rgba(255, 255, 255, 0.5),
-      4px 4px 10px 0px rgba(0, 0, 0, 0.1),
-      2px 2px 3px 0px rgba(0, 0, 0, 0.1);
-    transition: all 0.8s ease;
-  }
-  
-  .btn-15:hover {
-    color: var(--text-color);
-  }
-  
-  .btn-15:hover:after {
-    left: 0;
-    width: 100%;
-  }
-  
-  .btn-15:active {
-    top: 2px;
-  }
-  
-  /* Three image containers (use 25% for four, and 50% for two, etc) */
-  .column {
-    float: left;
-    width: auto;
-    padding: 5px;
-  }
-  
-  /* Clear floats after image containers */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-    padding: 2px;
-  }
-  
+  box-shadow: -1px -1px 20px 0px rgba(255, 255, 255, 1), -4px -4px 5px 0px rgba(255, 255, 255, 1), 7px 7px 20px 0px rgba(0, 0, 0, 0.4),
+    4px 4px 5px 0px rgba(0, 0, 0, 0, 0.3);
+}
+.btn-6 span:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 0.5px;
+  transition: all 500ms ease;
+}
+.btn-6 span:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 0.5px;
+  transition: all 500ms ease;
+}
+.btn-6 span:hover:before {
+  width: 100%;
+}
+.btn-6 span:hover:after {
+  width: 100%;
+}
+
+.btn-15 {
+  background: var(--accent-color);
+  border: none;
+  z-index: 1;
+  color: var(--text-color);
+}
+
+.btn-15:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  box-shadow: inset 1px 1px 2px 6px rgba(255, 255, 255, 0.5), 4px 4px 10px 0px rgba(0, 0, 0, 0.1), 2px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s ease;
+}
+
+.btn-15:hover {
+  color: var(--text-color);
+}
+
+.btn-15:hover:after {
+  left: 0;
+  width: 100%;
+}
+
+.btn-15:active {
+  top: 2px;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: auto;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  padding: 2px;
+}
 
 /* Center the row on the page */
 /* .row {
@@ -529,8 +510,12 @@ button {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .custom-btn.loading + .loading-icon-container {
@@ -543,18 +528,18 @@ button {
 
 /*  Genarated images styling */
 .card-img-top {
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .card:hover .card-img-top {
-    filter: brightness(75%) grayscale(10%);
-    opacity: 1;
+  filter: brightness(75%) grayscale(10%);
+  opacity: 1;
 }
 
 .card-text {
   font-size: 1em;
   font-weight: 500;
-  font-family: 'Proxima Nova', sans-serif;
+  font-family: "Proxima Nova", sans-serif;
   color: var(--text-color);
   text-shadow: 1px 1px #333;
   opacity: 0;
@@ -571,44 +556,42 @@ button {
   visibility: visible;
 }
 
-
-.modal-header{
+.modal-header {
   background-color: var(--primary-color);
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
 
-.modal-header .modal-title{
+.modal-header .modal-title {
   color: var(--secondary-color);
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
 }
 
 .modal-body {
   border-radius: 20px;
 }
 
-
 .modal-body h3 {
   font-weight: 400;
   font-size: 16px;
 }
 
-.modal-body #design-button{
+.modal-body #design-button {
   background-color: var(--secondary-color);
   border: none;
-  
 }
 
 #idx-footer {
   background-color: var(--primary-color);
-  color: #28EFEF;
+  color: #28efef;
   padding: 50px 0;
 }
 
-#idx-footer h1, #idx-footer h5 {
+#idx-footer h1,
+#idx-footer h5 {
   color: var(--secondary-color);
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   margin-bottom: 30px;
 }
 
@@ -658,7 +641,6 @@ button {
   color: var(--secondary-color);
 }
 
-
 .container {
   display: flex;
   width: 100%;
@@ -668,11 +650,11 @@ button {
 
 /* Ocean Breeze Theme */
 :root {
-  --background-color: #082D47;
-  --primary-color: #1B89E0;
-  --secondary-color: #28EFEF;
-  --accent-color: #B8DFFF;
-  --text-color: #FFFFFF;
+  --background-color: #082d47;
+  --primary-color: #1b89e0;
+  --secondary-color: #28efef;
+  --accent-color: #b8dfff;
+  --text-color: #ffffff;
 }
 
 body {
@@ -683,9 +665,9 @@ body {
 .box {
   flex: 1;
   overflow: hidden;
-  transition: .5s;
+  transition: 0.5s;
   margin: 0 2%;
-  box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
   line-height: 0;
   background-color: var(--primary-color);
 }
@@ -694,7 +676,7 @@ body {
   width: 200%;
   height: calc(100% - 10vh);
   object-fit: cover;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .box > span {
@@ -738,13 +720,26 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: .5s;
+  transition: 0.5s;
   z-index: 0;
 }
 
 .section-text {
-  font-family: 'Alegreya', serif;
+  font-family: "Alegreya", serif;
   font-size: 24px;
   font-weight: 200;
   color: var(--text-color);
+}
+
+/* RAMDOM CARDS CSS  */
+.random-card {
+  max-width: 40rem;
+  margin: auto;
+}
+.random-card-text {
+  color: #333;
+}
+.custom-img {
+  height: 100%;
+  object-fit: cover;
 }
