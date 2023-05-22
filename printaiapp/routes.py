@@ -585,7 +585,9 @@ def gen_image():
                         image_url = dbx.sharing_create_shared_link('/' + filename).url.replace('?dl=0', '?raw=1')
                     except Exception as e:
                         return('Generate a new dropbox access token.!!!')
-                        return str(e)
+                        print('=============================ERROR============================')
+                        print(e)
+                        # return str(e)
                     try:
                         # retrieve user object from the database using the ID stored in the session
                         user = User.query.get(session.get('user_id'))
